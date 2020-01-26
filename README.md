@@ -4,10 +4,10 @@
 # Use this to write a [SLY][sly] contrib
 
 `sly-hello-world` is an external contrib for [SLY][sly] that does
-nothing useful in itself, but acts is a template for writing other
+nothing particularly useful. It's just a template for writing other
 external contribs.
 
-This example makes it easy to setup a SLY extension that:
+It  makes it easier to setup a SLY extension that:
 
 * is completely self-contained (doesn't need to be bundled with SLY)
 
@@ -22,9 +22,9 @@ This example makes it easy to setup a SLY extension that:
 
 * is easily added to [MELPA](http://melpa.org)
 
-  Just ask make a
-  [pull request to MELPA](https://github.com/milkypostman/melpa/pulls)
-  and ask for your recipe to be added to `recipes/`. Use this template:
+  Just make a [pull request to
+  MELPA](https://github.com/milkypostman/melpa/pulls) and ask for your
+  recipe to be added to `recipes/`. Use this template:
 
 ```lisp
 (sly-hello-world :fetcher github
