@@ -5,7 +5,7 @@
 ;; Keywords: languages, lisp, sly
 ;; Package-Requires: ((sly "1.0.0-beta2"))
 ;; Author: João Távora <joaotavora@gmail.com>
-;; 
+;;
 ;; Copyright (C) 2015 João Távora
 ;;
 ;; This file is free software; you can redistribute it and/or modify
@@ -22,13 +22,13 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;
 ;;; Commentary:
-;; 
+;;
 ;; `sly-hello-world` is an external contrib for SLY that does nothing
 ;; special, but acts like a template for writing other external
 ;; contribs.
 ;;
 ;; See README.md
-;; 
+;;
 ;;; Code:
 
 (require 'sly)
@@ -64,10 +64,10 @@ in `sly-editing-mode-hook', i.e. lisp files."
                      sly-extra-mode-line-constructs)))))
 
 (defvar sly-hello-world-map
-  "A keymap accompanying `sly-hello-world-mode'."
   (let ((map (make-sparse-keymap)))
-    (define-key sly-prefix-map (kbd "C-d C-w") 'sly-hello-world)
-    map))
+    (define-key map (kbd "C-d C-w") 'sly-hello-world)
+    map)
+  "A keymap accompanying `sly-hello-world-mode'.")
 
 (defun sly-hello-world--mode-line-construct ()
   "A little pretty indicator in the mode-line"
