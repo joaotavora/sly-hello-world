@@ -5,7 +5,7 @@
 (in-package #:slynk-hello-world)
 
 (defslyfun hello-world ()
-  "Provide hello-worldish functionality for the Emacs side of SLY"
+  "Provide hello-world functionality for the Emacs side of SLY."
   (let ((random-feature (nth (random (length *features*)) *features*)))
     (list
      (format nil "Hello world, did you know your ~a supports ~a?"
@@ -14,7 +14,7 @@
      random-feature)))
 
 (slynk-backend:definterface lisp-name ()
-  "Identify the current lisp for hello-wordish purposes"
+  "Identify the current lisp for hello-word purposes."
   (format nil "lisp"))
 
 #+sbcl

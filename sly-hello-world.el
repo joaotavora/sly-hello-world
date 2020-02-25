@@ -24,10 +24,9 @@
 ;;; Commentary:
 ;;
 ;; `sly-hello-world` is an external contrib for SLY that does nothing
-;; special, but acts like a template for writing other external
-;; contribs.
+;; special.  It's just a template for writing other external contribs.
 ;;
-;; See README.md
+;; See README.md.
 ;;
 ;;; Code:
 
@@ -35,17 +34,19 @@
 
 (define-sly-contrib sly-hello-world
   "Define the `sly-hello-world' contrib.
-Depends on the `slynk-hello-world' ASDF system Insinuates itself
-in `sly-editing-mode-hook', i.e. lisp files."
+Depends on the `slynk-hello-world' ASDF system.
+
+Insinuates itself (via `sly-editing-mode-hook') in
+`sly-editing-mode-hook', i.e. lisp files."
   (:slynk-dependencies slynk-hello-world)
   (:on-load (add-hook 'sly-editing-mode-hook 'sly-hello-world-mode))
   (:on-unload (remove-hook 'sly-editing-mode-hook 'sly-hello-world-mode)))
 
 (defvar sly-hello-world--last-reported-feature nil
-  "Internal variable for world-helloing purposes")
+  "Internal variable for hello-worlding purposes.")
 
 (defun sly-hello-world ()
-  "Interactive command made available in lisp-editing files."
+  "Hello-world in your Lisp/SLY buffers."
   (interactive)
   (let ((results (sly-eval '(slynk-hello-world:hello-world))))
     (sly-message (cl-first results))
@@ -76,7 +77,7 @@ in `sly-editing-mode-hook', i.e. lisp files."
   "A keymap accompanying `sly-hello-world-mode'.")
 
 (defun sly-hello-world--mode-line-construct ()
-  "A little pretty indicator in the mode-line"
+  "A pretty indicator in the mode-line for hello-world functionality."
   `(:propertize ,(cond (sly-hello-world--last-reported-feature
                         (symbol-name sly-hello-world--last-reported-feature))
                        (sly-hello-world-mode

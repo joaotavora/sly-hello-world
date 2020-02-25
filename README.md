@@ -7,9 +7,9 @@
 nothing particularly useful. It's just a template for writing other
 external contribs.
 
-It  makes it easier to setup a SLY extension that:
+It makes it easier to setup a SLY extension that:
 
-* is completely self-contained (doesn't need to be bundled with SLY)
+* is completely self-contained (doesn't need to be bundled with SLY);
 
 * has both Emacs-Lisp and Common-Lisp counterparts
 
@@ -18,7 +18,7 @@ It  makes it easier to setup a SLY extension that:
 * has automated [Travis tests](https://travis-ci.org/capitaomorte/sly-hello-world) already in place
 
   See the file `.travis.yml`. There are some sample unit tests for
-  this contrib using SBCL and CCL there.
+  this contrib using SBCL and CCL there;
 
 * is easily added to [MELPA](http://melpa.org)
 
@@ -36,7 +36,18 @@ It  makes it easier to setup a SLY extension that:
 
 
 The remainder of this `README.md` file is itself a template for the
-one that should be included in a contrib.
+one that should be included in the contrib.
+
+## Quick and easy
+
+Clone this repository somewhere, go to a shell there and type:
+
+```
+$ emacs -Q -L <path-to-sly> -l sly-hello-world.el -f sly
+```
+
+In `.lisp` files you can now `C-c H W` (or `M-x sly-hello-world`) to
+be informed of the hello-worldness of your Lisp.
 
 ## Install from MELPA
 
@@ -47,10 +58,7 @@ package-install`.
 Once it's done, `M-x sly` should now bring up a hello-world enabled
 SLY.
 
-In `.lisp` files you can now use `M-x sly-hello-world` to be informed
-about the hello-worldness of your Lisp.
-
-## Melpa-less install
+## Install from Git
 
 Since this is an external contrib with both Elisp and Lisp parts,
 merely loading the Elisp will have little effect. The contrib has to
@@ -67,14 +75,13 @@ of this automatically. So the following setup in your `~/.emacs` or
 (add-to-list 'load-path "/path/to/sly")
 (require 'sly-autoloads)
 
+;;; sly-hello-world setup
 (add-to-list 'load-path "/path/to/sly-hello-world")
 (require 'sly-hello-world-autoloads)
 ```
 
 In case you already have SLY loaded and running, you might have to
 `M-x sly-setup` and `M-x sly-enable-contrib` to enable it.
-
-`sly-hello-world` should now kick in in Lisp buffers.
 
 [sly]: https://github.com/capitaomorte/sly
 
