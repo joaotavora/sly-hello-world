@@ -51,6 +51,12 @@ in `sly-editing-mode-hook', i.e. lisp files."
     (sly-message (cl-first results))
     (setq-local sly-hello-world--last-reported-feature (cl-second results))))
 
+(defvar sly-hello-world-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c H W") 'sly-hello-world)
+    map)
+  "A keymap accompanying `sly-hello-world-mode'.")
+
 (define-minor-mode sly-hello-world-mode
   "A minor mode active when the contrib is active."
   nil nil nil
@@ -63,9 +69,9 @@ in `sly-editing-mode-hook', i.e. lisp files."
                (delq 'sly-hello-world--mode-line-construct
                      sly-extra-mode-line-constructs)))))
 
-(defvar sly-hello-world-map
+(defvar sly-hello-world-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-d C-w") 'sly-hello-world)
+    (define-key map (kbd "C-c H W") 'sly-hello-world)
     map)
   "A keymap accompanying `sly-hello-world-mode'.")
 
