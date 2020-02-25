@@ -33,7 +33,18 @@ It makes it easier to setup a SLY extension that:
                                  "*.lisp"
                                  "*.asd"))
 ```
+## Renaming this to something else
 
+Say you want to rename your extension `sly-frobnicator` the easier way is to:
+
+```
+$ find  . -type f -exec sed -i 's/hello-world/frobnicator/g' {} +
+$ /bin/ls | sed -n 's/\(.*\)hello-world\(.*\)/mv "\0" "\1frobnicator\2"/p' | sh
+```
+
+And `git commit` the result.
+
+# SLY Hello-world
 
 The remainder of this `README.md` file is itself a template for the
 one that should be included in the contrib.
